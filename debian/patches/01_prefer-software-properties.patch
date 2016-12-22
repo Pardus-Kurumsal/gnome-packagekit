@@ -1,0 +1,27 @@
+From: Matthias Klumpp <matthias@tenstral.net>
+Date: Thu, 22 Dec 2016 18:10:24 +0100
+Subject: Prefer software-properties-gtk
+ This patch makes GTPK use software-properties-gtk instead of
+ gpk-prefs if the former is available on the system.
+--- a/src/gpk-application.c
++++ b/src/gpk-application.c
+@@ -2202,12 +2202,18 @@
+ 	GpkApplicationPrivate *priv = user_data;
+ 	GtkWidget *window;
+ 	guint xid;
++	g_autofree gchar *exe = NULL;
+ 
+ 	/* get xid */
+ 	window = GTK_WIDGET (gtk_builder_get_object (priv->builder, "window_manager"));
+ 	xid = gdk_x11_window_get_xid (gtk_widget_get_window (window));
+ 
+-	command = g_strdup_printf ("%s/gpk-prefs --parent-window %u", BINDIR, xid);
++	exe = g_strdup_printf ("%s/software-properties-gtk", BINDIR);
++	if (g_file_test (exe, G_FILE_TEST_IS_EXECUTABLE))
++		command = g_strdup_printf ("%s -nt %u", exe, xid);
++	else
++		command = g_strdup_printf ("%s/gpk-prefs --parent-window %u", BINDIR, xid);
++
+ 	g_debug ("running: %s", command);
+ 	ret = g_spawn_command_line_async (command, NULL);
+ 	if (!ret)

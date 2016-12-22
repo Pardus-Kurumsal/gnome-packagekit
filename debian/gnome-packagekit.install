@@ -1,0 +1,14 @@
+usr/bin/gpk-application
+usr/bin/gpk-log
+usr/bin/gpk-prefs
+usr/bin/gpk-update-viewer
+usr/share/GConf/gsettings/org.gnome.packagekit.gschema.migrate
+usr/share/applications/gpk-log.desktop
+usr/share/applications/org.gnome.PackageUpdater.desktop
+usr/share/applications/org.gnome.Packages.desktop
+usr/share/glib-2.0/schemas/org.gnome.packagekit.gschema.xml
+usr/share/man/man1/gpk-application.1
+usr/share/man/man1/gpk-log.1
+usr/share/man/man1/gpk-prefs.1
+usr/share/man/man1/gpk-update-viewer.1
+usr/share/metainfo/*

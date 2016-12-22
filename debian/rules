@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+
+GPK_CONFIGURE_FLAGS = --disable-tests
+
+# Define install and build directory
+INSTALLDIR = $(CURDIR)/debian/tmp
+
+%:
+	dh $@ --with autoreconf
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(GPK_CONFIGURE_FLAGS)
+
+override_dh_auto_install:
+	dh_auto_install --destdir=$(INSTALLDIR)
+
+override_dh_install:
+	# we don't ship the gpk-prefs .desktop file, since this tool can be accessed through the main application
+	# and we might want to have users use software-properties instead if it is available.
+	rm $(INSTALLDIR)/usr/share/applications/gpk-prefs.desktop
+
+	# install files
+	dh_install --list-missing
