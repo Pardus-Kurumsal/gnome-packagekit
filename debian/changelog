@@ -1,3 +1,10 @@
+gnome-packagekit (3.22.1-2pardus1) unstable; urgency=medium
+
+  [ Cihangir Akturk ]
+  * debian/control: drop software-properties-gtk from Recommends
+
+ -- Cihangir Akturk <cihangir@pardus.org.tr>  Thu, 15 Jun 2017 16:48:10 +0300
+
 gnome-packagekit (3.22.1-2) unstable; urgency=medium
 
   * Prefer software-properties-gtk if it is available (Closes: #698336)
