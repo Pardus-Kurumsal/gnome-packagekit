@@ -29,7 +29,6 @@ Depends: gnome-packagekit-data (>= ${source:Version}),
          packagekit (>= 1.0.4),
          ${misc:Depends},
          ${shlibs:Depends}
-Recommends: software-properties-gtk
 Replaces: gnome-packagekit-session (<< 3.16.0),
           gnome-software-manager (<< 3.6.0-2)
 Breaks: gnome-packagekit-session (<< 3.16.0),
