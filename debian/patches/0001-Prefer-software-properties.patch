@@ -1,11 +1,17 @@
-From: Matthias Klumpp <matthias@tenstral.net>
-Date: Thu, 22 Dec 2016 18:10:24 +0100
-Subject: Prefer software-properties-gtk
- This patch makes GTPK use software-properties-gtk instead of
- gpk-prefs if the former is available on the system.
+From: =?utf-8?q?Yunusemre_=C5=9Eent=C3=BCrk?=
+ <yunusemre.senturk@pardus.org.tr>
+Date: Wed, 15 Nov 2017 16:28:33 +0300
+Subject: Prefer software properties
+
+---
+ src/gpk-application.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/src/gpk-application.c b/src/gpk-application.c
+index b5b63db..6b2d564 100644
 --- a/src/gpk-application.c
 +++ b/src/gpk-application.c
-@@ -2202,12 +2202,18 @@
+@@ -2202,12 +2202,18 @@ gpk_application_activate_sources_cb (GSimpleAction *action,
  	GpkApplicationPrivate *priv = user_data;
  	GtkWidget *window;
  	guint xid;
